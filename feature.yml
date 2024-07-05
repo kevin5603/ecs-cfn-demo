@@ -123,9 +123,9 @@ Resources:
   AlarmProcessorHandler:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: alarm_processor
-      CodeUri: s3://kevin5603/alarm_processor.py.zip
-      Handler: alarm_processor.lambda_handler
+      FunctionName: close_unhealthy_task
+      CodeUri: s3://kevin5603/close_unhealthy_task.py.zip
+      Handler: close_unhealthy_task.lambda_handler
       Runtime: python3.12
       MemorySize: 128
       Environment:
