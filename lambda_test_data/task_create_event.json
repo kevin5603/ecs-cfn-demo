@@ -1,0 +1,77 @@
+{
+  "version": "0",
+  "id": "279702d8-8eef-c337-a9a8-6c9547ba64f0",
+  "detail-type": "ECS Task State Change",
+  "source": "aws.ecs",
+  "account": "975049910219",
+  "time": "2024-07-24T06:14:16Z",
+  "region": "us-west-2",
+  "resources": [
+    "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/4df68bb3d6834318bb73655f5f9de736"
+  ],
+  "detail": {
+    "attachments": [
+      {
+        "id": "e307edd9-c829-444c-9046-f8a68b2b1f34",
+        "type": "eni",
+        "status": "PRECREATED",
+        "details": [
+          {
+            "name": "subnetId",
+            "value": "subnet-074ae923c244cddda"
+          }
+        ]
+      },
+      {
+        "id": "d434a75b-9442-4048-b3a5-6e8d46fef5f1",
+        "type": "elb",
+        "status": "PRECREATED",
+        "details": []
+      }
+    ],
+    "attributes": [
+      {
+        "name": "ecs.cpu-architecture",
+        "value": "x86_64"
+      }
+    ],
+    "availabilityZone": "us-west-2b",
+    "clusterArn": "arn:aws:ecs:us-west-2:975049910219:cluster/ecs-demo-cluster",
+    "containers": [
+      {
+        "containerArn": "arn:aws:ecs:us-west-2:975049910219:container/ecs-demo-cluster/4df68bb3d6834318bb73655f5f9de736/590f8fee-0f86-44c7-b1fb-04818bf14a47",
+        "lastStatus": "PENDING",
+        "name": "ecs-demo-container",
+        "image": "docker.io/kevin5603/simple-app@sha256:1460f01cb981f56042733fdfaa079582deb23942a2781c0e7a91c37b0b3cd857",
+        "taskArn": "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/4df68bb3d6834318bb73655f5f9de736",
+        "networkInterfaces": [],
+        "cpu": "256",
+        "memory": "256"
+      }
+    ],
+    "cpu": "256",
+    "createdAt": "2024-07-24T06:14:16.114Z",
+    "desiredStatus": "RUNNING",
+    "enableExecuteCommand": false,
+    "ephemeralStorage": {
+      "sizeInGiB": 20
+    },
+    "group": "service:ecs-demo-service",
+    "launchType": "FARGATE",
+    "lastStatus": "PROVISIONING",
+    "memory": "512",
+    "overrides": {
+      "containerOverrides": [
+        {
+          "name": "ecs-demo-container"
+        }
+      ]
+    },
+    "platformVersion": "1.4.0",
+    "startedBy": "ecs-svc/5989383565861273736",
+    "taskArn": "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/4df68bb3d6834318bb73655f5f9de736",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:975049910219:task-definition/my-ecs-task-caas:37",
+    "updatedAt": "2024-07-24T06:14:16.114Z",
+    "version": 1
+  }
+}

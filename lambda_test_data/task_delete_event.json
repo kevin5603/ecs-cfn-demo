@@ -1,0 +1,110 @@
+{
+  "version": "0",
+  "id": "7cef971e-50c2-3765-338d-4bdc2e7459ea",
+  "detail-type": "ECS Task State Change",
+  "source": "aws.ecs",
+  "account": "975049910219",
+  "time": "2024-07-24T06:19:51Z",
+  "region": "us-west-2",
+  "resources": [
+    "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/9cf13c6204ed47c08d457fdbfc3302e1"
+  ],
+  "detail": {
+    "attachments": [
+      {
+        "id": "b81cc13f-87a5-4231-9cbd-aa09d9b7cf3b",
+        "type": "elb",
+        "status": "DELETED",
+        "details": []
+      },
+      {
+        "id": "fcac6e36-77a7-4293-aa02-3f7556b38b2a",
+        "type": "eni",
+        "status": "ATTACHED",
+        "details": [
+          {
+            "name": "subnetId",
+            "value": "subnet-03022198daa7101b8"
+          },
+          {
+            "name": "networkInterfaceId",
+            "value": "eni-07104414db36c64e9"
+          },
+          {
+            "name": "macAddress",
+            "value": "02:6a:3c:56:78:1b"
+          },
+          {
+            "name": "privateDnsName",
+            "value": "ip-172-31-17-196.us-west-2.compute.internal"
+          },
+          {
+            "name": "privateIPv4Address",
+            "value": "172.31.17.196"
+          }
+        ]
+      }
+    ],
+    "attributes": [
+      {
+        "name": "ecs.cpu-architecture",
+        "value": "x86_64"
+      }
+    ],
+    "availabilityZone": "us-west-2a",
+    "clusterArn": "arn:aws:ecs:us-west-2:975049910219:cluster/ecs-demo-cluster",
+    "connectivity": "CONNECTED",
+    "connectivityAt": "2024-07-24T06:12:08.828Z",
+    "containers": [
+      {
+        "containerArn": "arn:aws:ecs:us-west-2:975049910219:container/ecs-demo-cluster/9cf13c6204ed47c08d457fdbfc3302e1/0dca9fa7-8c5f-44a8-a85d-00f9f57ad667",
+        "exitCode": 143,
+        "lastStatus": "STOPPED",
+        "name": "ecs-demo-container",
+        "image": "docker.io/kevin5603/simple-app@sha256:1460f01cb981f56042733fdfaa079582deb23942a2781c0e7a91c37b0b3cd857",
+        "imageDigest": "sha256:1460f01cb981f56042733fdfaa079582deb23942a2781c0e7a91c37b0b3cd857",
+        "runtimeId": "9cf13c6204ed47c08d457fdbfc3302e1-3375191768",
+        "taskArn": "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/9cf13c6204ed47c08d457fdbfc3302e1",
+        "networkInterfaces": [
+          {
+            "attachmentId": "fcac6e36-77a7-4293-aa02-3f7556b38b2a",
+            "privateIpv4Address": "172.31.17.196"
+          }
+        ],
+        "cpu": "256",
+        "memory": "256"
+      }
+    ],
+    "cpu": "256",
+    "createdAt": "2024-07-24T06:12:05.019Z",
+    "desiredStatus": "STOPPED",
+    "enableExecuteCommand": false,
+    "ephemeralStorage": {
+      "sizeInGiB": 20
+    },
+    "executionStoppedAt": "2024-07-24T06:19:41.278Z",
+    "group": "service:ecs-demo-service",
+    "launchType": "FARGATE",
+    "lastStatus": "DEPROVISIONING",
+    "memory": "512",
+    "overrides": {
+      "containerOverrides": [
+        {
+          "name": "ecs-demo-container"
+        }
+      ]
+    },
+    "platformVersion": "1.4.0",
+    "pullStartedAt": "2024-07-24T06:12:16.817Z",
+    "pullStoppedAt": "2024-07-24T06:12:30.34Z",
+    "startedAt": "2024-07-24T06:12:47.14Z",
+    "startedBy": "ecs-svc/5989383565861273736",
+    "stoppingAt": "2024-07-24T06:13:37.104Z",
+    "stoppedReason": "Task stopped by user",
+    "stopCode": "UserInitiated",
+    "taskArn": "arn:aws:ecs:us-west-2:975049910219:task/ecs-demo-cluster/9cf13c6204ed47c08d457fdbfc3302e1",
+    "taskDefinitionArn": "arn:aws:ecs:us-west-2:975049910219:task-definition/my-ecs-task-caas:37",
+    "updatedAt": "2024-07-24T06:19:51.306Z",
+    "version": 8
+  }
+}

@@ -20,8 +20,7 @@ echo "開始部署pipeline..."
 aws cloudformation create-stack \
 --stack-name lambda-stack --template-body file://lambda_cfn.yml --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND --region us-west-2
 
-aws cloudformation create-stack \
---stack-name metric-stack --template-body file://metric_cfn.yml --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND --region us-west-2
+sam deploy --template-file lambda_cfn.yml --stack-name lambda-stack --s3-bucket kevin5603 --capabilities CAPABILITY_IAM
 
 aws cloudformation create-stack \
 --parameters ParameterKey=ecsDemoVpcId,ParameterValue=vpc-09cb5cd5ef925ee97 \
@@ -29,7 +28,7 @@ ParameterKey=subnetIdList,ParameterValue="subnet-074ae923c244cddda\,subnet-0e1f6
 --stack-name ecs-demo-stack --template-body file://ecs_cfn.yml --capabilities CAPABILITY_NAMED_IAM CAPABILITY_AUTO_EXPAND --region us-west-2
 
 # delete stack
-aws cloudformation delete-stack --stack-name lambda-stack
+sam delete --stack-name lambda-stack
 
 aws cloudformation delete-stack --stack-name metric-stack
 

@@ -12,13 +12,20 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: ecs_alarm_handler
-      CodeUri: s3://kevin5603/ecs_alarm_handler.py.zip
+      CodeUri: lambda
       Handler: ecs_alarm_handler.lambda_handler
       Runtime: python3.12
       MemorySize: 128
       Environment:
         Variables:
-          JAVA_TOOL_OPTIONS: '--add-opens=java.management/sun.management=ALL-UNNAMED'
+          ALARM_FUNCTION_NAME: close_unhealthy_task
+          REGION: us-west-2
+          ACCOUNT_ID: !Ref AWS::AccountId
+          EVAL_PERIODS: 1
+          THRESHOLD: 1
+          CLUSTER_NAME: ecs-demo-cluster
+          CPU_THRESHOLD: 50
+          MEMORY_THRESHOLD: 20
       Role: !GetAtt ExecutionLambdaRole.Arn
       Timeout: 120
       Events:
@@ -78,13 +85,10 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: close_unhealthy_task
-      CodeUri: s3://kevin5603/close_unhealthy_task.py.zip
+      CodeUri: lambda
       Handler: close_unhealthy_task.lambda_handler
       Runtime: python3.12
       MemorySize: 128
-      Environment:
-        Variables:
-          JAVA_TOOL_OPTIONS: '--add-opens=java.management/sun.management=ALL-UNNAMED'
       Role: !GetAtt CloseUnhealthyTaskExecutionLambdaRole.Arn
       Timeout: 120
   CloseUnhealthyTaskExecutionLambdaRole:
