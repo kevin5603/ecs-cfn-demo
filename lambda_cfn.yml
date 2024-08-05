@@ -11,14 +11,14 @@ Resources:
   EcsAlarmHandler:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: ecs_alarm_handler
-      CodeUri: lambda
-      Handler: ecs_alarm_handler.lambda_handler
+      FunctionName: ecs-alarm-handler
+      CodeUri: s3://ecs-demo-bucket-xxx/artifact/lambda/ecs-alarm-handler.zip
+      Handler: ecs-alarm-handler.lambda_handler
       Runtime: python3.12
       MemorySize: 128
       Environment:
         Variables:
-          ALARM_FUNCTION_NAME: close_unhealthy_task
+          ALARM_FUNCTION_NAME: close-unhealthy-task
           REGION: us-west-2
           ACCOUNT_ID: !Ref AWS::AccountId
           EVAL_PERIODS: 1
@@ -84,9 +84,9 @@ Resources:
   CloseUnhealthyTaskHandler:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: close_unhealthy_task
-      CodeUri: lambda
-      Handler: close_unhealthy_task.lambda_handler
+      FunctionName: close-unhealthy-task
+      CodeUri: s3://ecs-demo-bucket-xxx/artifact/lambda/close-unhealthy-task.zip
+      Handler: close-unhealthy-task.lambda_handler
       Runtime: python3.12
       MemorySize: 128
       Role: !GetAtt CloseUnhealthyTaskExecutionLambdaRole.Arn
