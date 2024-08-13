@@ -7,12 +7,17 @@ Parameters:
   serviceName:
     Type: String
     Default: ecs-demo-service
+  s3BucketName:
+    Type: String
+    Default: ecs-demo-bucket-xxx
 Resources:
   EcsAlarmHandler:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: ecs-alarm-handler
-      CodeUri: s3://ecs-demo-bucket-xxx/artifact/lambda/ecs-alarm-handler.zip
+      CodeUri:
+        Bucket: !Sub "${s3BucketName}"
+        Key: artifact/lambda/ecs-alarm-handler.zip
       Handler: ecs-alarm-handler.lambda_handler
       Runtime: python3.12
       MemorySize: 128
@@ -85,7 +90,9 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: close-unhealthy-task
-      CodeUri: s3://ecs-demo-bucket-xxx/artifact/lambda/close-unhealthy-task.zip
+      CodeUri:
+        Bucket: !Sub "${s3BucketName}"
+        Key: artifact/lambda/close-unhealthy-task.zip
       Handler: close-unhealthy-task.lambda_handler
       Runtime: python3.12
       MemorySize: 128
